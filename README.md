@@ -1,4 +1,4 @@
-<img width="1024" height="1024" alt="HexInceptionIcon" src="https://github.com/user-attachments/assets/3848c4be-7b27-4c77-9cd9-d9626a9b1d49" />
+<img width="512" height="512" alt="HexInceptionIcon" src="https://github.com/user-attachments/assets/3848c4be-7b27-4c77-9cd9-d9626a9b1d49" />
 
 # Hex Inception
 ## Information Sheet & User Guide
