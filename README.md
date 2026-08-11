@@ -1,7 +1,4 @@
-<img width="512" height="512" alt="HexInceptionIcon" src="https://github.com/user-attachments/assets/3848c4be-7b27-4c77-9cd9-d9626a9b1d49" />
-
 <img width="530" height="851" alt="Hex Inception (Solo)" src="https://github.com/user-attachments/assets/a01bc8e9-563a-4361-8e12-118992b44047" />
-
 
 # **Release date: Due 2026/08/13**
 
