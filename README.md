@@ -26,11 +26,13 @@ Hex Inception solves a common limitation in hex guitar setups: your audio hardwa
 **Reamp / Resynth:**  
 `DAW → Hex Inception 8ch → Hex Inception → hosted plug-in → DAW` 
 
-### Download
+### Installation
 
 **macOS:** `Hex_Inception_1.0.0_macOS.pkg`
 
 The installer contains the **AUv2, VST3 and Hex Inception 8ch HAL driver**. It is Developer ID signed, Apple notarized and stapled for normal macOS installation. 
+
+The HAL driver is intended to be aggregated with priary audio interface/s to enable reamping/resynthing individually recorded strings.
 
 **SHA-256:**  
 `68b608b6220bddd192e60da51a4df984b6d89fba616d01bb2dcdfb685054d037`
