@@ -23,7 +23,7 @@ Hex Inception solves a common DAW/host limitation in integrated hex guitar/compu
 **Live** mode:  
 `Hex audio device → Hex Inception → hosted plug-in → DAW`
 
-**Reamp / Resynth** mode:  
+**Reamp/Resynth** mode:  
 `DAW → Hex Inception 8ch → Hex Inception → hosted plug-in → DAW` 
 
 ### Installation
@@ -34,8 +34,8 @@ The installer contains the **AUv2, VST3 and Hex Inception 8ch HAL driver**. It i
 
 The HAL driver is intended to be aggregated with each user's primary audio device to enable reamping/resynthing individually recorded strings.
 
-**SHA-256:**  
-`68b608b6220bddd192e60da51a4df984b6d89fba616d01bb2dcdfb685054d037`
+### Requirements:
 
-> Hex Inception requires a compatible multichannel audio source and a compatible hosted multichannel plug-in for its primary hexaphonic workflow.
-> Full setup instructions, Live and Reamp / Resynth workflows, routing guidance and troubleshooting are available in the Hex Inception User Guide⁠.
+Hex Inception is currently a macOS-only plug-in. Hex Inception requires a compatible multichannel audio source and a compatible hosted multichannel plug-in for its primary hexaphonic workflow.
+
+> Full setup instructions, **Live** and **Reamp/Resynth** workflows, routing guidance and troubleshooting are available in the Hex Inception User Guide⁠.
