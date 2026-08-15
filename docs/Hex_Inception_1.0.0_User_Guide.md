@@ -21,58 +21,58 @@ Typical signal paths are:
 **Live:**  
 `Hex audio device → Hex Inception → hosted plug-in → DAW`
 
-**Reamp / Resynth:**  
+**Reamp/Resynth:**  
 `DAW → Hex Inception 8ch → Hex Inception → hosted plug-in → DAW`
 
 A common use case is feeding a BOSS/Roland-style hexaphonic USB source to a processor such as **MIDI Guitar 3 Hex**.
 
-Hex Inception does not require device-specific BOSS awareness. In Live mode, it works from the capabilities reported by Core Audio.
+In Live mode, Hex Inception works with any compatible multichannel Core Audio device; it is not limited to specific BOSS/Roland hardware.
 
 ---
 
 ## 2. What Problem It Solves
 
-Many hexaphonic systems expose eight audio channels over USB:
+Hexaphonic systems expose six or more audio channels over USB:
 
-- 2 × direct / DI channels
+- 1 or more direct / DI channels
 - 6 × individual string channels
 
-The audio device may provide all eight channels, but a DAW may expose only stereo or another unsuitable plug-in input layout.
+BOSS devices expose 8 channels.
 
-Hex Inception works around that restriction by providing its own eight-channel source path to the plug-in hosted inside it.
+But even if an audio device provides multiple channels, the DAW in use may expose only stereo or another unsuitable plug-in input layout. This can be a showstopper for certain plugins.
 
-This allows an eight-input processor to operate without depending on the DAW being able to feed that processor eight hardware input channels directly.
+Hex Inception bypasses that restriction by providing its own eight-channel source path to the plug-in hosted directly inside it.
+
+This allows an eight-input processor to operate without dependence on the DAW being able to feed that processor all hardware input channels directly.
 
 ---
 
 ## 3. Requirements
 
-### Live workflow
+### **Live** workflow
 
 You need:
 
-1. A Mac running a supported macOS version.
+1. A Mac running a supported macOS version (macOS 11 Big Sur or higher).
 2. Hex Inception installed in AUv2 or VST3 format.
-3. A physical Core Audio input device with at least eight input channels.
+3. A physical Core Audio input device with at least six input channels.
 4. A compatible multichannel plug-in to host inside Hex Inception.
 
-### Reamp / Resynth workflow
+### **Reamp/Resynth** workflow
 
 You also need:
 
-5. The **Hex Inception 8ch** virtual audio device installed and available to macOS.
+5. The **Hex Inception 8ch** virtual audio device installed and available to macOS. This is included in the installation package.
 
-If the hosted processor generates MIDI, configure an appropriate MIDI destination in Hex Inception and the receiving DAW or application.
+Selecting Reamp/Resynth tells Hex Inception to listen to this virtual audio device, as opposed to the direct USB device input from Live mode. 
+
+Note: If the hosted processor generates MIDI, configure an appropriate MIDI destination in Hex Inception and the receiving DAW or application.
 
 ---
 
-## 4. Live and Reamp / Resynth
+## 4. **Live** and **Reamp/Resynth**
 
-The source mode is selected with the:
-
-**Live | Reamp / Resynth**
-
-control.
+The source mode is selected with the **Live | Reamp/Resynth** control.
 
 ### Live
 
@@ -87,14 +87,14 @@ Typical uses include:
 - playing a hex guitar in real time
 - live MIDI Guitar 3 Hex tracking
 - hexaphonic audio processing
-- recording the hosted processor's result
-- generating MIDI from a live performance
+- recording the hosted processor's output (bussed to a new audio track)
+- generating MIDI for a live performance
 
 In Live mode, Hex Inception lets you select the physical source device and physical buffer.
 
-### Reamp / Resynth
+### Reamp/Resynth
 
-Use **Reamp / Resynth** when the eight-channel performance has already been recorded and you want to process it again.
+Use **Reamp/Resynth** when a multichannel performance has already been recorded and you want to process it again.
 
 Signal flow:
 
@@ -108,7 +108,7 @@ Typical uses include:
 - resynthesising a performance without replaying it
 - comparing processor settings using the same source material
 
-In Reamp / Resynth mode, the source is **Hex Inception 8ch**, so physical device selection is not used.
+In Reamp/Resynth mode, the source is **Hex Inception 8ch**, so physical device selection is not used.
 
 ---
 
@@ -137,7 +137,7 @@ Hex Inception does not assume that every manufacturer's labels or string order a
 
 The Live device selector is intended for devices that can provide the required multichannel source.
 
-Devices with fewer than **eight input channels** are not presented as normal Live-source choices.
+Devices with fewer than **six input channels** are not presented as normal Live-source choices.
 
 ---
 
@@ -175,19 +175,20 @@ A fresh/default Hex Inception state selects:
 
 If the selected physical device cannot support one of the available choices, that choice may remain visible but unavailable.
 
-Hex Inception distinguishes between the buffer you requested and the buffer actually accepted by the physical device. Diagnostic information should be treated as authoritative when checking the actual operating buffer.
+Hex Inception distinguishes between the buffer you requested and the buffer actually accepted by the physical device.
 
 ### Choosing a buffer
 
 | Buffer | General use |
 |---|---|
-| 16–32 | Minimum-latency operation where the hardware and session remain stable |
+| 16–32 | Minimum-latency operation|
 | 64 | Low-latency performance |
 | 128 | Default starting point |
 | 256 | Heavier sessions or additional safety margin |
 | 512 | Latency-insensitive processing or troubleshooting |
 
-Use the smallest buffer that remains completely reliable on the actual hardware and session.
+Use the smallest buffer that remains completely reliable on the actual hardware and session. 
+>Note: Lower framerates are provided for user interest but 64 it is a recommended "sensible" setting.
 
 ---
 
@@ -195,9 +196,7 @@ Use the smallest buffer that remains completely reliable on the actual hardware 
 
 ### 1. Connect the source device
 
-Connect and power on the hex-capable audio device.
-
-Confirm that macOS can see it before troubleshooting Hex Inception itself.
+Connect and power on the hex-capable audio device. Confirm that macOS can see the device in the Audio-MIDI Setup environment.
 
 ### 2. Insert Hex Inception
 
@@ -209,29 +208,31 @@ Select:
 
 **Live**
 
-in the **Live | Reamp / Resynth** control.
+in the **Live | Reamp/Resynth** control.
 
 ### 4. Select the device
 
-Choose the required physical source from the device selector.
+Choose the required physical source from the device selector. 
 
-Only suitable multichannel input devices are intended to appear here.
+Devices with five or less inputs do not appear here.
 
 ### 5. Select the buffer
 
 Choose the required physical buffer.
 
-For a first test, **128 frames** is a sensible starting point.
+For a first test, **128 frames** is a sensible starting point. 
 
 ### 6. Select the hosted plug-in
 
-Hex Inception must be stopped before changing the hosted processor.
+Hex Inception must be stopped before changing the hosted plug-in.
 
-Use the plug-in selector in the **Hosted Plug-in** section to choose the compatible multichannel processor you want to use.
+Use the plug-in selector in the **Hosted Plug-in** section to choose a compatible multichannel plugin.
 
 When a processor is loaded, the Hosted Plug-in section identifies it and shows information such as its manufacturer, format, input/output count and running state.
 
 A saved project/session restores its hosted plug-in and hosted state when that plug-in is still available.
+
+Note: a plugin, once shown to load correctly, is flagged with compatibility status in the plug-in list. 
 
 ### 7. Check Routing
 
@@ -267,15 +268,15 @@ Do this before an important recording session, especially when using a new devic
 
 ---
 
-## 9. Basic Setup — Reamp / Resynth
+## 9. Basic Setup — Reamp/Resynth
 
-Reamp / Resynth processes an already-recorded eight-channel performance.
+Reamp/Resynth processes an already-recorded multichannel performance.
 
 ### 1. Preserve the eight discrete channels
 
 The original hex source must remain discrete.
 
-Do not collapse the six string channels to stereo if you intend to reprocess them later.
+Do not collapse the six string channels (and DI guitar signal/s) to stereo if you intend to reprocess them later.
 
 ### 2. Send the recording to Hex Inception 8ch
 
@@ -285,17 +286,17 @@ In the DAW, route the eight recorded channels to the corresponding outputs of:
 
 Maintain the intended eight-channel order.
 
-### 3. Select Reamp / Resynth
+### 3. Select Reamp/Resynth
 
 In Hex Inception, select:
 
-**Reamp / Resynth**
+**Reamp/Resynth**
 
 The physical Live-device selector is not used in this mode.
 
 ### 4. Select or recall the hosted processor
 
-While stopped, use the **Hosted Plug-in** selector if you need to choose a different processor.
+While stopped, use the **Hosted Plug-in** selector to choose a different processor.
 
 If the DAW project already contains a saved Hex Inception state and the processor is installed, Hex Inception should recall the saved processor and its state.
 
@@ -328,7 +329,10 @@ When loaded, the interface provides a compact summary such as:
 
 For example:
 
-**8 inputs · 2 outputs · Running**
+**PatchWork · Blue Cat Audio · VST3**
+**8 inputs · 4 outputs · Running**
+
+(Note: when using PatchWork, be sure to select its 8-in/4-out audio config under its I/O button). 
 
 ### Changing the hosted processor
 
@@ -351,6 +355,8 @@ If Hex Inception reports that no plug-in is loaded or that the saved processor c
 
 A missing processor should not be silently replaced with an unrelated one.
 
+A "No Plug-in" option is selectable in the plug-in list to assist with troubleshooting.
+
 ---
 
 ## 11. Routing
@@ -360,9 +366,9 @@ The **Routing** section describes how the eight source channels are presented to
 The source is determined by the selected mode:
 
 - **Live:** the selected physical input device
-- **Reamp / Resynth:** Hex Inception 8ch
+- **Reamp/Resynth:** Hex Inception 8ch
 
-### Verify routing by signal, not by assumption
+### Verify routing by signal
 
 When using a new source device or processor:
 
@@ -524,7 +530,7 @@ Possible causes include:
 
 - the hardware is not supplying all expected channels
 - the source channel order differs from what you expected
-- one DAW return channel is missing in Reamp / Resynth
+- one DAW return channel is missing in Reamp/Resynth
 - the hosted plug-in is not exposing the required eight-input layout
 - the Routing section does not match the intended signal order
 
@@ -534,12 +540,12 @@ Identify the actual source order with the meters, then compare it with the Routi
 
 Avoid destructively changing the original recording until you understand the actual channel order.
 
-### Reamp / Resynth is silent
+### Reamp/Resynth is silent
 
 Confirm that:
 
 - **Hex Inception 8ch** is installed
-- Hex Inception is set to **Reamp / Resynth**
+- Hex Inception is set to **Reamp/Resynth**
 - the DAW is sending audio to Hex Inception 8ch
 - all required output channels are being sent
 - the eight-channel order is correct
@@ -621,7 +627,7 @@ Prioritise:
 
 Where possible, preserve the original eight discrete hex channels.
 
-This gives you the option to use **Reamp / Resynth** later rather than permanently committing to the tracking or synthesis result generated during the original performance.
+This gives you the option to use **Reamp/Resynth** later rather than permanently committing to the tracking or synthesis result generated during the original performance.
 
 ### Reprocessing
 
