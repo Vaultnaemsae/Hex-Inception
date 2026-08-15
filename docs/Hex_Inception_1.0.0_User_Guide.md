@@ -355,8 +355,6 @@ If Hex Inception reports that no plug-in is loaded or that the saved processor c
 
 A missing processor should not be silently replaced with an unrelated one.
 
-A "No Plug-in" option is selectable in the plug-in list to assist with troubleshooting.
-
 ---
 
 ## 11. Routing
@@ -377,8 +375,6 @@ When using a new source device or processor:
 3. Observe which hosted input receives it.
 4. Check the corresponding entry in Routing.
 5. Repeat until all eight channels are accounted for.
-
-This is particularly important with hexaphonic hardware because manufacturer channel labels and string order can differ.
 
 ---
 
@@ -432,7 +428,7 @@ Use the channel meters to answer:
 
 For a new device, excite one source at a time.
 
-For a six-string hex source, play each string separately and note which of the eight channels responds.
+For a six-string hex source, play each string separately and note which of the channels responds.
 
 ---
 
@@ -458,13 +454,13 @@ When diagnosing MIDI, check the signal path in this order:
 4. Is Hex Inception's MIDI output configured correctly?
 5. Is the receiving DAW or application listening to the selected MIDI destination?
 
-Do not begin by troubleshooting MIDI routing if the hosted plug-in is receiving the wrong audio channels.
+Before troubleshooting MIDI routing, make sure that the hosted plug-in is receiving audio on the correct channels.
 
 ---
 
 ## 16. Status Details and Diagnostics
 
-Use **Status Details** and **Diagnostics** when you need to investigate a problem.
+Refer to **Status Details** (at the top of the UI) and **Diagnostics** (accessible under Support) if you ever need to investigate a problem.
 
 Depending on the current state, diagnostics can help confirm:
 
@@ -490,10 +486,10 @@ Check that:
 
 - the device is connected and powered
 - macOS can see it
-- it exposes at least eight input channels
+- it exposes at least six input channels
 - Hex Inception is in **Live** mode
 
-Hex Inception intentionally does not fill the Live selector with devices that cannot provide the required eight-channel source.
+Hex Inception intentionally does not fill the Live selector with devices that cannot provide the required multichannel source.
 
 ### Start Audio Input does not produce audio
 
@@ -554,13 +550,9 @@ Confirm that:
 
 ### Crackles or instability
 
-Try a larger physical buffer in Live mode.
+Try a larger physical buffer in Live mode. **32 → 64 → 128 → 256**
 
-For example:
-
-**32 → 64 → 128 → 256**
-
-Do not treat the smallest selectable buffer as automatically preferable.
+Do not treat the smallest selectable buffer as automatically preferable!
 
 ### A 192 kHz session does not work
 
@@ -574,20 +566,18 @@ Use one of:
 
 ## 18. Recommended First-Time Test
 
-Before relying on Hex Inception in an important project:
-
 1. Create a new DAW project.
 2. Insert Hex Inception.
 3. Select **Live**.
-4. Select the physical eight-channel source.
+4. Select the physical multichannel source.
 5. Use **128 frames** initially.
 6. Select the intended hosted processor while stopped.
 7. Review Routing.
 8. Press **Start Audio Input**.
 9. Confirm the status shows **Receiving**.
 10. Test every string/source independently.
-11. Confirm all eight channels are accounted for.
-12. Confirm the hosted processor produces the expected result.
+11. Confirm all audio channels are accounted for.
+12. Confirm the hosted processor plug-in produces the expected result.
 13. Save the project.
 
 This gives you a known-good reference configuration.
@@ -617,7 +607,7 @@ Always check the visible status after reopening a project before recording.
 Prioritise:
 
 1. correct source device
-2. correct eight-channel signal
+2. correct multichannel signal
 3. correct hosted processor
 4. correct routing
 5. stable buffer
@@ -625,7 +615,7 @@ Prioritise:
 
 ### Recording
 
-Where possible, preserve the original eight discrete hex channels.
+Where possible, preserve the original discrete hex channels.
 
 This gives you the option to use **Reamp/Resynth** later rather than permanently committing to the tracking or synthesis result generated during the original performance.
 
@@ -633,7 +623,7 @@ This gives you the option to use **Reamp/Resynth** later rather than permanently
 
 Keep the recorded source channels intact.
 
-Use Hex Inception's source/routing workflow to present them correctly to the hosted processor instead of destructively altering the original performance files.
+Use Hex Inception's source/routing workflow to present them correctly to the hosted processor rather than destructively altering the original performance files.
 
 ---
 
@@ -650,7 +640,7 @@ Hex Inception is not intended to be:
 
 Its purpose is narrower:
 
-> **Provide a reliable eight-channel hexaphonic source to a hosted processor when the surrounding DAW cannot conveniently provide that input itself.**
+> **Provide a reliable multichannel hexaphonic source to a hosted processor when the surrounding DAW cannot conveniently provide that input itself.**
 
 ---
 
@@ -697,17 +687,17 @@ Fresh/default selection:
 
 ---
 
-## 23. Information to Include With a Support Report
+## 23. Contacting Support
 
-Include:
+Click the **Support** button to get help. Please include the following info in your email:
 
 - macOS version
 - DAW and version
 - Hex Inception version
 - Hex Inception plug-in format
 - hosted plug-in name, format and version
-- Live or Reamp / Resynth mode
-- physical source device, if using Live
+- Live or Reamp/Resynth mode
+- physical source device, if using Live mode
 - sample rate
 - requested buffer
 - actual accepted buffer, if relevant
@@ -716,14 +706,6 @@ Include:
 - whether Hex Inception shows **Receiving** or **Stopped**
 - whether the problem occurs in a new empty project
 - relevant Status Details or Diagnostics
-
-For channel problems, describe the observed mapping explicitly.
-
-For example:
-
-> Source channel 5 reaches hosted input 7; source channel 7 is silent.
-
-That is much more useful than reporting only that the strings are routed incorrectly.
 
 ---
 
@@ -739,4 +721,4 @@ Select the hosted processor while stopped, verify the Routing section, start the
 
 The basic principle is:
 
-**Get all eight source channels to the intended hosted processor inputs reliably, without depending on the DAW to provide that eight-channel plug-in input itself.**
+**Get all source channels to the intended hosted processor inputs reliably, without depending on the DAW to provide that multichannel plug-in input itself.**
