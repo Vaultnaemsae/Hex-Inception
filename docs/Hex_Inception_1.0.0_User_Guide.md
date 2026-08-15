@@ -4,7 +4,7 @@
 **Version:** 1.0.0  
 **Product:** Hex Inception (AUv2/VST3)  
 **Platform:** macOS  
-**Primary use:** Supplying an eight-channel hexaphonic audio source to a hosted multichannel plug-in inside a DAW.
+**Primary use:** Supplying a multichannel hexaphonic audio source to a hosted multichannel plug-in inside a DAW. (maximum: 8 channels)
 
 ---
 
