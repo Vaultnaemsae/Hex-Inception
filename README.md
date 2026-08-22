@@ -1,10 +1,10 @@
 <img width="256" height="256" alt="HexInceptionIcon" src="https://github.com/user-attachments/assets/7fce60ad-24c9-4e7c-8dd1-799b2a1f17e3" />
 
-# Hex Inception 1.0.0
+# Hex Inception
 
-The first public release of **Hex Inception**, a macOS plug-in for hexaphonic guitar DAW/host workflows, both in performance and recording.
+**Hex Inception** is a macOS plug-in for hexaphonic guitar DAW/host workflows, both in performance and recording.
 
-Hex Inception solves a common DAW/host limitation in integrated hex guitar/computer setups: when connected via USB your audio hardware may expose all channels correctly — typically two DI channels plus six individual strings — while your DAW cannot provide a practical multichannel input path to the plug-in that needs them. Hex Inception acquires the multichannel source directly and routes it to a compatible plug-in via its hosting capability.
+Hex Inception solves a common DAW/host limitation in integrated hex guitar/computer setups: when connected via USB, your audio hardware may expose all channels correctly — typically two DI channels plus six individual strings — while your DAW cannot provide a practical multichannel input path to the plug-in that needs them. Hex Inception acquires the multichannel source directly and routes it to a compatible plug-in via its hosting capability.
 
 ### Highlights
 
